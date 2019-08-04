@@ -4,13 +4,22 @@
  * and open the template in the editor.
  */
 package Agentes;
-import Clases.*;
+
+import Clases.TableroGrafo;
+import jade.core.Agent;
+import jade.core.behaviours.CyclicBehaviour;
+import jade.lang.acl.ACLMessage;
+import jade.lang.acl.UnreadableException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+/*import Clases.*;
 import jade.core.Agent;
 import jade.core.behaviours.CyclicBehaviour;
 import jade.lang.acl.*;
 import java.io.IOException;
 import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.logging.Logger;*/
 
 /**
  *
@@ -20,7 +29,7 @@ import java.util.logging.Logger;
 
 
 public class JugadorUno extends Agent{
-    TableroGrafo tablero;
+    
     @Override
     public void setup(){
         comportamientoJugador agenteJugador = new comportamientoJugador();
@@ -28,6 +37,7 @@ public class JugadorUno extends Agent{
     }
     
     class comportamientoJugador extends CyclicBehaviour{
+        TableroGrafo tablero;
         
 
         @Override
@@ -35,25 +45,21 @@ public class JugadorUno extends Agent{
             ACLMessage mensaje = receive();
             if(mensaje!= null){
                 System.err.println("Recibido... de: " + mensaje.getSender().getLocalName());
+              
                 try {
                     tablero = (TableroGrafo)mensaje.getContentObject();
-                    
-                    
-                    // realizar jugada realizar 
+                       // realizar jugada realizar 
                     realizarJugada();
                     
                     ACLMessage respuesta = mensaje.createReply();
                     respuesta.setPerformative(ACLMessage.INFORM);
                     respuesta.setContentObject(tablero);
-                    
-                } catch (UnreadableException ex) {
+                    send(mensaje);
+                } catch (Exception ex) {
                     Logger.getLogger(JugadorUno.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (IOException ex) {
-                    Logger.getLogger(JugadorUno.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            
+                } 
             }
-
+        //mensaje = null;
         }
         
         private void realizarJugada(){

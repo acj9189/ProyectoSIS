@@ -42,8 +42,6 @@ public class Arbitro extends Agent{
             aidDos = new AID();
             aidUno.setLocalName("JugadorUno");
             aidDos.setLocalName("JugadorDos");
-            
-        
         }
         
         @Override
@@ -69,13 +67,10 @@ public class Arbitro extends Agent{
                 } catch (UnreadableException ex) {
                     Logger.getLogger(Arbitro.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                
-                
-            
             }
-            
-
         }
+    
+    
     }
     
 }
