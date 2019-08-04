@@ -28,21 +28,27 @@ public class Arbitro extends Agent{
     
     @Override
     public void setup(){
+        comportamientoArbitro agenteArbitro = new comportamientoArbitro();
+        addBehaviour(agenteArbitro);
+        
     }
     
     class comportamientoArbitro extends CyclicBehaviour{
 
         public comportamientoArbitro() {
+            NombreArbitro = "Andres";
             tablero = new TableroGrafo();
             aidUno  = new AID();
             aidDos = new AID();
             aidUno.setLocalName("JugadorUno");
             aidDos.setLocalName("JugadorDos");
+            
         
         }
         
         @Override
         public void action() {
+            
             ACLMessage mensaje = new ACLMessage(ACLMessage.REQUEST);
             mensaje.setSender(getAID());
             mensaje.setLanguage("Español");
