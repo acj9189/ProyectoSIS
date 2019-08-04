@@ -4,15 +4,19 @@
  * and open the template in the editor.
  */
 package Agentes;
+
 import jade.core.Agent;
 
 /**
  *
  * @author Andres
  */
-
-
-
-public class Agente extends Agent{
+public class JugadorDos extends Agent {
+    
+    @Override
+    public void setup(){
+    }
+    
+    
     
 }
