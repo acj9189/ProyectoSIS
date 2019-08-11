@@ -54,7 +54,7 @@ public class JugadorUno extends Agent{
                     ACLMessage respuesta = mensaje.createReply();
                     respuesta.setPerformative(ACLMessage.INFORM);
                     respuesta.setContentObject(tablero);
-                    send(mensaje);
+                    send(respuesta);
                 } catch (Exception ex) {
                     Logger.getLogger(JugadorUno.class.getName()).log(Level.SEVERE, null, ex);
                 } 
