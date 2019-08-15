@@ -70,11 +70,7 @@ public class JugadorUno extends Agent {
             }
             //mensaje = null;
         }
-
-        private void realizarJugada() {
-            System.out.println("Realice mi jugada.... " + getLocalName());
-        }
-
+        
         private void definirFase() {
             if (fase == 0) {
                 asignarFicha();
@@ -100,6 +96,10 @@ public class JugadorUno extends Agent {
                 //tablero.mostrartablero();
             }
 
+        }
+        
+         private void realizarJugada() {
+            System.out.println("Realice mi jugada.... " + getLocalName());
         }
     }
 

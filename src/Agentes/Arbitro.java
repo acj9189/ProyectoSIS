@@ -47,8 +47,8 @@ public class Arbitro extends Agent {
         public void action() {
             enviarMensaje(aidUno);
             enviarMensaje(aidDos);
-            System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-            tablero.mostrartablero();
+            //System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+           // tablero.mostrartablero();
         }
 
         public void enviarMensaje(AID aid) {
