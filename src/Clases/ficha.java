@@ -6,12 +6,13 @@
 package Clases;
 
 import Agentes.JugadorUno;
+import java.io.Serializable;
 
 /**
  *
  * @author Andres
  */
-public class ficha {
+public class ficha  implements Serializable{
     
     private String identificadorJugador;
     private int CostoMoverFicha;

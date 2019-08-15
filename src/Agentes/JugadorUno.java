@@ -97,6 +97,7 @@ public class JugadorUno extends Agent {
             } 
             else {
                 fase = 1;
+                //tablero.mostrartablero();
             }
 
         }

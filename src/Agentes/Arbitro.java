@@ -18,59 +18,62 @@ import java.util.logging.Logger;
  *
  * @author Andres
  */
-public class Arbitro extends Agent{
-    
+public class Arbitro extends Agent {
+
     String NombreArbitro;
-    TableroGrafo tablero; 
+    TableroGrafo tablero;
     AID aidUno;
     AID aidDos;
-     
-    
+
     @Override
-    public void setup(){
+    public void setup() {
         comportamientoArbitro agenteArbitro = new comportamientoArbitro();
         addBehaviour(agenteArbitro);
-        
+
     }
-    
-    class comportamientoArbitro extends CyclicBehaviour{
+
+    class comportamientoArbitro extends CyclicBehaviour {
 
         public comportamientoArbitro() {
             NombreArbitro = "Andres";
             tablero = new TableroGrafo();
-            aidUno  = new AID();
+            aidUno = new AID();
             aidDos = new AID();
-            aidUno.setLocalName("JugadorUno");
-            aidDos.setLocalName("JugadorDos");
+            aidUno.setLocalName("B");
+            aidDos.setLocalName("A");
         }
-        
+
         @Override
         public void action() {
-            
+            enviarMensaje(aidUno);
+            enviarMensaje(aidDos);
+            System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+            tablero.mostrartablero();
+        }
+
+        public void enviarMensaje(AID aid) {
             ACLMessage mensaje = new ACLMessage(ACLMessage.REQUEST);
             mensaje.setSender(getAID());
             mensaje.setLanguage("Español");
-            mensaje.addReceiver(aidUno);
-            
+            mensaje.addReceiver(aid);
             try {
                 mensaje.setContentObject(tablero);
             } catch (IOException ex) {
                 Logger.getLogger(Arbitro.class.getName()).log(Level.SEVERE, null, ex);
             }
             send(mensaje);
-            
             ACLMessage respuesta = blockingReceive();
-            if(respuesta!= null){
+            if (respuesta != null) {
                 System.err.println("Recibido... de: " + respuesta.getSender().getLocalName());
                 try {
-                    tablero = (TableroGrafo)respuesta.getContentObject();
+                    tablero = (TableroGrafo) respuesta.getContentObject();
                 } catch (UnreadableException ex) {
                     Logger.getLogger(Arbitro.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
+
         }
-    
-    
+
     }
-    
+
 }

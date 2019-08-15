@@ -19,7 +19,7 @@ public class TableroGrafo implements Serializable {
     public TableroGrafo() {
         System.out.println("hola soy el tablero");
         realizarTablero();
-        mostrartablero();
+       //mostrartablero();
     }
 
     public void realizarTablero() {
@@ -183,7 +183,7 @@ public class TableroGrafo implements Serializable {
 //        for(nodoGrafo nodoA : this.Nodos){
 //            if(nodoA == nodo){
         for (int i = 0; i < ids.length; i++) {
-            System.out.println(this.Nodos.get(ids[i] ).getIdientificador());
+            ///System.out.println(this.Nodos.get(ids[i] ).getIdientificador());
             //nodo.getVecinos().add(this.Nodos.get(this.Nodos.indexOf(ids[i])+1));
           nodo.getVecinos().add(this.Nodos.get(ids[i]));
         }
@@ -192,13 +192,18 @@ public class TableroGrafo implements Serializable {
 
     }
     
-    private void mostrartablero(){
+    public void mostrartablero(){
         
         for(nodoGrafo nodo : this.Nodos){
             System.out.println("Soy nodo con id: "+ nodo.getIdientificador());
             for (nodoGrafo nodoV: nodo.getVecinos()){
                 System.out.println("Soy hijo de: " + nodo.getIdientificador() + " mi vecino es: " + nodoV.getIdientificador() );
+                
             }
+            System.out.println("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
+             if(nodo.getFicha() != null ){
+                    System.out.println(nodo.getFicha().getIdentificadorJugador());
+                }   
         }
     
     }
