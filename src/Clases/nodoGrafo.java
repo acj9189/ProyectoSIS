@@ -5,13 +5,14 @@
  */
 package Clases;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 
 /**
  *
  * @author Andres
  */
-public class nodoGrafo {
+public class nodoGrafo implements Serializable{
     
     private int idientificador;
     private LinkedList<nodoGrafo> vecinos;

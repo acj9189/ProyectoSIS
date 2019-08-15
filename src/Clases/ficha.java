@@ -5,6 +5,8 @@
  */
 package Clases;
 
+import Agentes.JugadorUno;
+
 /**
  *
  * @author Andres
@@ -12,6 +14,7 @@ package Clases;
 public class ficha {
     
     private String identificadorJugador;
+    private int CostoMoverFicha;
 
     public ficha() {
     }
@@ -19,7 +22,25 @@ public class ficha {
     public ficha(String identificadorJugador) {
         this.identificadorJugador = identificadorJugador;
     }
-    
-    
-    
+
+    public ficha(String identificadorJugador, int CostoMoverFicha) {
+        this.identificadorJugador = identificadorJugador;
+        this.CostoMoverFicha = CostoMoverFicha;
+    }
+
+    public int getCostoMoverFicha() {
+        return CostoMoverFicha;
+    }
+
+    public String getIdentificadorJugador() {
+        return identificadorJugador;
+    }
+
+    public void setCostoMoverFicha(int CostoMoverFicha) {
+        this.CostoMoverFicha = CostoMoverFicha;
+    }
+
+    public void setIdentificadorJugador(String identificadorJugador) {
+        this.identificadorJugador = identificadorJugador;
+    }
 }

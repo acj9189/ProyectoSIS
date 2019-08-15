@@ -26,6 +26,7 @@ public class TableroGrafo implements Serializable {
         this.Nodos = new LinkedList<>();
         for (int i = 0; i < 24; i++) {
             this.Nodos.add(new nodoGrafo(i));
+           
         }
 
         for (nodoGrafo nodo : this.Nodos) {
@@ -201,7 +202,7 @@ public class TableroGrafo implements Serializable {
         }
     
     }
-
+    
     public void realizarJugada() {
     }
 
