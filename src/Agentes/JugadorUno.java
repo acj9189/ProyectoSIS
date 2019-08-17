@@ -30,7 +30,7 @@ public class JugadorUno extends Agent {
 
     String identificadorJugador;
     TableroGrafo tablero;
-    LinkedList<ficha> listaFichas;
+    LinkedList<Ficha> listaFichas;
     int numeroMaximoFichas;
     byte fase;
 
@@ -82,12 +82,12 @@ public class JugadorUno extends Agent {
         private void asignarFicha() {
             if (listaFichas.size() < 9) {
                 int posicion = (int) (Math.random() * 24);
-                ficha fichaTemp = tablero.getNodos().get(posicion).getFicha();
+                Ficha fichaTemp = tablero.getNodos().get(posicion).getFicha();
                 while(fichaTemp != null){
                     posicion = (int) (Math.random() * 24);
                     fichaTemp = tablero.getNodos().get(posicion).getFicha();
                 }
-                ficha ficha = new ficha(identificadorJugador);
+                Ficha ficha = new Ficha(identificadorJugador);
                 listaFichas.add(ficha);
                 tablero.getNodos().get(posicion).setFicha(ficha);
             } 

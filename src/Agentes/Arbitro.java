@@ -24,31 +24,41 @@ public class Arbitro extends Agent {
     TableroGrafo tablero;
     AID aidUno;
     AID aidDos;
+    byte desicionQuinJuegaPrimero;
 
     @Override
     public void setup() {
-        comportamientoArbitro agenteArbitro = new comportamientoArbitro();
+        byte desicionJugar = (byte) (Math.random() * 2);
+        comportamientoArbitro agenteArbitro = new comportamientoArbitro(desicionJugar);
         addBehaviour(agenteArbitro);
 
     }
 
     class comportamientoArbitro extends CyclicBehaviour {
 
-        public comportamientoArbitro() {
+        public comportamientoArbitro(byte desicion) {
             NombreArbitro = "Andres";
             tablero = new TableroGrafo();
             aidUno = new AID();
             aidDos = new AID();
             aidUno.setLocalName("B");
             aidDos.setLocalName("A");
+            desicionQuinJuegaPrimero = desicion;
         }
 
         @Override
         public void action() {
-            enviarMensaje(aidUno);
-            enviarMensaje(aidDos);
+
+            if (desicionQuinJuegaPrimero == 0) {
+                enviarMensaje(aidUno);
+                enviarMensaje(aidDos);
+            } else {
+                enviarMensaje(aidDos);
+                enviarMensaje(aidUno);
+            }
+
             //System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-           // tablero.mostrartablero();
+            // tablero.mostrartablero();
         }
 
         public void enviarMensaje(AID aid) {

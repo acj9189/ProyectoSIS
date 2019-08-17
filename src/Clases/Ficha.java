@@ -12,19 +12,19 @@ import java.io.Serializable;
  *
  * @author Andres
  */
-public class ficha  implements Serializable{
+public class Ficha  implements Serializable{
     
     private String identificadorJugador;
     private int CostoMoverFicha;
 
-    public ficha() {
+    public Ficha() {
     }
 
-    public ficha(String identificadorJugador) {
+    public Ficha(String identificadorJugador) {
         this.identificadorJugador = identificadorJugador;
     }
 
-    public ficha(String identificadorJugador, int CostoMoverFicha) {
+    public Ficha(String identificadorJugador, int CostoMoverFicha) {
         this.identificadorJugador = identificadorJugador;
         this.CostoMoverFicha = CostoMoverFicha;
     }

@@ -12,40 +12,40 @@ import java.util.LinkedList;
  *
  * @author Andres
  */
-public class nodoGrafo implements Serializable{
+public class NodoGrafo implements Serializable{
     
     private int idientificador;
-    private LinkedList<nodoGrafo> vecinos;
-    private ficha ficha;
+    private LinkedList<NodoGrafo> vecinos;
+    private Ficha ficha;
 
-    public nodoGrafo() {
+    public NodoGrafo() {
         this.ficha = null;
     }
 
-    public nodoGrafo(int idientificador ) {
+    public NodoGrafo(int idientificador ) {
         this.ficha = null;
         this.idientificador = idientificador;
         this.vecinos = new LinkedList<>();
     
     }
 
-    public nodoGrafo(ficha ficha) {
+    public NodoGrafo(Ficha ficha) {
         this.ficha = ficha;
     }
 
-    public ficha getFicha() {
+    public Ficha getFicha() {
         return ficha;
     }
 
-    public void setFicha(ficha ficha) {
+    public void setFicha(Ficha ficha) {
         this.ficha = ficha;
     }
 
-    public LinkedList<nodoGrafo> getVecinos() {
+    public LinkedList<NodoGrafo> getVecinos() {
         return vecinos;
     }
 
-    public void setVecinos(LinkedList<nodoGrafo> vecinos) {
+    public void setVecinos(LinkedList<NodoGrafo> vecinos) {
         this.vecinos = vecinos;
     }
 

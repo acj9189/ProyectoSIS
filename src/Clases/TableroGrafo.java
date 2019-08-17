@@ -14,7 +14,7 @@ import java.util.LinkedList;
  */
 public class TableroGrafo implements Serializable {
 
-    LinkedList<nodoGrafo> Nodos;
+    LinkedList<NodoGrafo> Nodos;
 
     public TableroGrafo() {
         System.out.println("hola soy el tablero");
@@ -25,18 +25,18 @@ public class TableroGrafo implements Serializable {
     public void realizarTablero() {
         this.Nodos = new LinkedList<>();
         for (int i = 0; i < 24; i++) {
-            this.Nodos.add(new nodoGrafo(i));
+            this.Nodos.add(new NodoGrafo(i));
            
         }
 
-        for (nodoGrafo nodo : this.Nodos) {
+        for (NodoGrafo nodo : this.Nodos) {
             identificarvecionos(nodo);
 
         }
 
     }
 
-    private void identificarvecionos(nodoGrafo nodo) {
+    private void identificarvecionos(NodoGrafo nodo) {
         int[]ids = {};
         switch (nodo.getIdientificador()) {
             case 0:
@@ -178,9 +178,9 @@ public class TableroGrafo implements Serializable {
         asiganarVecionos(nodo, ids);
     }
 
-    private void asiganarVecionos(nodoGrafo nodo, int[] ids) {
+    private void asiganarVecionos(NodoGrafo nodo, int[] ids) {
 
-//        for(nodoGrafo nodoA : this.Nodos){
+//        for(NodoGrafo nodoA : this.Nodos){
 //            if(nodoA == nodo){
         for (int i = 0; i < ids.length; i++) {
             ///System.out.println(this.Nodos.get(ids[i] ).getIdientificador());
@@ -194,9 +194,9 @@ public class TableroGrafo implements Serializable {
     
     public void mostrartablero(){
         
-        for(nodoGrafo nodo : this.Nodos){
+        for(NodoGrafo nodo : this.Nodos){
             System.out.println("Soy nodo con id: "+ nodo.getIdientificador());
-            for (nodoGrafo nodoV: nodo.getVecinos()){
+            for (NodoGrafo nodoV: nodo.getVecinos()){
                 System.out.println("Soy hijo de: " + nodo.getIdientificador() + " mi vecino es: " + nodoV.getIdientificador() );
                 
             }
@@ -211,11 +211,11 @@ public class TableroGrafo implements Serializable {
     public void realizarJugada() {
     }
 
-    public LinkedList<nodoGrafo> getNodos() {
+    public LinkedList<NodoGrafo> getNodos() {
         return Nodos;
     }
 
-    public void setNodos(LinkedList<nodoGrafo> Nodos) {
+    public void setNodos(LinkedList<NodoGrafo> Nodos) {
         this.Nodos = Nodos;
     }
 
