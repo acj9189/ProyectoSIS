@@ -70,7 +70,7 @@ public class JugadorUno extends Agent {
             }
             //mensaje = null;
         }
-        
+
         private void definirFase() {
             if (fase == 0) {
                 asignarFicha();
@@ -83,24 +83,42 @@ public class JugadorUno extends Agent {
             if (listaFichas.size() < 9) {
                 int posicion = (int) (Math.random() * 24);
                 Ficha fichaTemp = tablero.getNodos().get(posicion).getFicha();
-                while(fichaTemp != null){
+                while (fichaTemp != null) {
                     posicion = (int) (Math.random() * 24);
                     fichaTemp = tablero.getNodos().get(posicion).getFicha();
                 }
                 Ficha ficha = new Ficha(identificadorJugador);
                 listaFichas.add(ficha);
                 tablero.getNodos().get(posicion).setFicha(ficha);
-            } 
-            else {
+            } else {
                 fase = 1;
                 //tablero.mostrartablero();
             }
 
         }
-        
-         private void realizarJugada() {
+
+        private void realizarJugada() {
             System.out.println("Realice mi jugada.... " + getLocalName());
         }
+        
+        private void moverFichaAlVecnio(NodoGrafo nodoContieneFichaAMover){
+            // contien ficha
+            for(NodoGrafo nodoPosibleMover: nodoContieneFichaAMover.getVecinos()){
+                if(nodoPosibleMover.getFicha() == null){
+                    // y tiene la menor eurista nos movemos a ese... trae nodo de menor euritica
+                    Ficha fichaMover = nodoContieneFichaAMover.getFicha();
+                    nodoPosibleMover.setFicha(fichaMover);
+                    nodoContieneFichaAMover.setFicha(null);
+                    break;
+                        
+                }
+            
+            }
+            
+            
+        }
+        
+
     }
 
 }

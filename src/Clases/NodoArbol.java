@@ -14,14 +14,14 @@ import java.util.LinkedList;
 public class NodoArbol {
     
     private LinkedList<NodoArbol> listaHijos;
-    private LinkedList<TableroGrafo> tablero;
+    private TableroGrafo tablero;
     private byte tipoNodo = 0;
     
     private int heuristicaH;
     private int costoMoverFichaF;
     private int CantidadFichasAdversarioG;
 
-    public NodoArbol(LinkedList<NodoArbol> listaHijos, LinkedList<TableroGrafo> tablero, int heuristicaH, int distanciaOrigenF, int distanciaDestinoG) {
+    public NodoArbol(LinkedList<NodoArbol> listaHijos, TableroGrafo tablero, int heuristicaH, int distanciaOrigenF, int distanciaDestinoG) {
         this.listaHijos = listaHijos;
         this.tablero = tablero;
         this.heuristicaH = heuristicaH;
@@ -31,6 +31,11 @@ public class NodoArbol {
 
     public NodoArbol() {
         
+    }
+    
+    public NodoArbol(TableroGrafo tablero){
+        this.tablero = tablero;
+    
     }
 
     public int getDistanciaDestinoG() {
@@ -61,7 +66,7 @@ public class NodoArbol {
         this.listaHijos = listaHijos;
     }
 
-    public void setTablero(LinkedList<TableroGrafo> tablero) {
+    public void setTablero(TableroGrafo tablero) {
         this.tablero = tablero;
     }
 
@@ -69,8 +74,12 @@ public class NodoArbol {
         return listaHijos;
     }
 
-    public LinkedList<TableroGrafo> getTablero() {
+    public TableroGrafo getTablero() {
         return tablero;
+    }
+    
+    public void creaHijos(){
+    
     }
     
     

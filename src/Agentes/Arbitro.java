@@ -5,7 +5,7 @@
  */
 package Agentes;
 
-import Clases.TableroGrafo;
+import Clases.*;
 import jade.core.AID;
 import jade.core.Agent;
 import jade.core.behaviours.CyclicBehaviour;
@@ -25,6 +25,7 @@ public class Arbitro extends Agent {
     AID aidUno;
     AID aidDos;
     byte desicionQuinJuegaPrimero;
+    ArbolDesicion arbolDesicion;
 
     @Override
     public void setup() {
