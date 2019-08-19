@@ -5,14 +5,13 @@
  */
 package Agentes;
 
-import Clases.TableroGrafo;
+import Clases.*;
 import jade.core.Agent;
 import jade.core.behaviours.CyclicBehaviour;
 import jade.lang.acl.ACLMessage;
 import jade.lang.acl.UnreadableException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import Clases.*;
 import java.util.LinkedList;
 
 /*import Clases.*;
@@ -33,6 +32,8 @@ public class JugadorUno extends Agent {
     LinkedList<Ficha> listaFichas;
     int numeroMaximoFichas;
     byte fase;
+    
+    int contador = 0;
 
     @Override
     public void setup() {
@@ -90,8 +91,11 @@ public class JugadorUno extends Agent {
                 Ficha ficha = new Ficha(identificadorJugador);
                 listaFichas.add(ficha);
                 tablero.getNodos().get(posicion).setFicha(ficha);
+//                contador++;
+//                System.err.println(contador + " Soy el contador");
             } else {
                 fase = 1;
+               // System.err.println("Cambie de fase");
                 //tablero.mostrartablero();
             }
 
@@ -111,11 +115,8 @@ public class JugadorUno extends Agent {
                     nodoContieneFichaAMover.setFicha(null);
                     break;
                         
-                }
-            
-            }
-            
-            
+                }  
+            }    
         }
         
 
